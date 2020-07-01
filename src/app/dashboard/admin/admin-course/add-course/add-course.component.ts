@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from 'src/app/Models/skill';
 import { Batch } from 'src/app/Models/batch';
-import { SkillService } from 'src/app/admin-skill/skill.service';
-import { BatchService } from 'src/app/admin-batch/batch.service';
 import { Course } from 'src/app/Models/course';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseService } from '../course.service';
+import { SkillService } from '../../admin-skill/skill.service';
+import { BatchService } from '../../admin-batch/batch.service';
 
 @Component({
   selector: 'app-add-course',

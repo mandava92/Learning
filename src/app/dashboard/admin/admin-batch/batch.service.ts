@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Batch } from '../Models/batch';
 import { Observable } from 'rxjs';
+import { Batch } from 'src/app/Models/batch';
 
 @Injectable({
   providedIn: 'root'

@@ -8,7 +8,19 @@ import { TraineeInprogressComponent } from './trainee/trainee-inprogress/trainee
 import { TraineeSearchComponent } from './trainee/trainee-search/trainee-search.component';
 import { TraineeCompletedComponent } from './trainee/trainee-completed/trainee-completed.component';
 import { SharedModule } from '../shared.module';
-import { RatingsComponent } from '../ratings/ratings.component';
+import { SharedGeneralModule } from '../shared-general.module';
+import { CommonModule } from '@angular/common';
+import { AdminComponent } from './admin/admin.component';
+import { AdminSkillComponent } from './admin/admin-skill/admin-skill.component';
+import { AdminBatchComponent } from './admin/admin-batch/admin-batch.component';
+import { AdminCourseComponent } from './admin/admin-course/admin-course.component';
+import { AddCourseComponent } from './admin/admin-course/add-course/add-course.component';
+import { ListCourseComponent } from './admin/admin-course/list-course/list-course.component';
+import { EditCourseComponent } from './admin/admin-course/edit-course/edit-course.component';
+import { CourseComponent } from '../Models/course/course.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+// import { CommonModule } from '@angular/common';
+// import { RatingsComponent } from '../ratings/ratings.component';
 
 @NgModule({
   declarations: [DashboardComponentComponent,
@@ -18,11 +30,20 @@ import { RatingsComponent } from '../ratings/ratings.component';
     TraineeInprogressComponent,
     TraineeSearchComponent,
     TraineeCompletedComponent,
-    RatingsComponent
+    AdminComponent,
+    AdminSkillComponent,
+    AdminBatchComponent,
+    AdminCourseComponent,
+    AddCourseComponent,
+    ListCourseComponent,
+    EditCourseComponent,
+    CourseComponent
+    
+    // RatingsComponent
   ],
   imports: [
-    //CommonModule,
-    // CommonModule,
+    CommonModule,
+    SharedGeneralModule,
     SharedModule,
     DashboardRouter
     

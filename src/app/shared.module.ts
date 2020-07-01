@@ -1,24 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RatingsComponent } from './ratings/ratings.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedGeneralModule } from './shared-general.module';
 import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
-    
+    RatingsComponent
   ],
   imports: [  
-    // CommonModule
-    
-    
-    
+    CommonModule,
+    SharedGeneralModule
   ],
   exports:[
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    
+    RatingsComponent
    
   ]
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/Models/course';
 import { Router } from '@angular/router';
-import { JsonPipe } from '@angular/common';
 import { CourseService } from '../course.service';
 import { Skill } from 'src/app/Models/skill';
 import { Batch } from 'src/app/Models/batch';

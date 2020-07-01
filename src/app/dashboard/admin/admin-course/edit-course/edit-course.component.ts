@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { BatchService } from 'src/app/admin-batch/batch.service';
 import { Skill } from 'src/app/Models/skill';
 import { Batch } from 'src/app/Models/batch';
-import { SkillService } from 'src/app/admin-skill/skill.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/Models/course';
 import { createAotUrlResolver } from '@angular/compiler';
 import { CourseService } from '../course.service';
+import { SkillService } from '../../admin-skill/skill.service';
+import { BatchService } from '../../admin-batch/batch.service';
 
 @Component({
   selector: 'app-edit-course',

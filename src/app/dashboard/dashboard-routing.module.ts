@@ -5,6 +5,11 @@ import { DashboardComponentComponent } from './dashboard-component.component';
 import { TraineeCompletedComponent } from './trainee/trainee-completed/trainee-completed.component';
 import { TraineeSearchComponent } from './trainee/trainee-search/trainee-search.component';
 import { TraineeInprogressComponent } from './trainee/trainee-inprogress/trainee-inprogress.component';
+import { AdminComponent } from './admin/admin.component';
+import { AddCourseComponent } from './admin/admin-course/add-course/add-course.component';
+import { EditCourseComponent } from './admin/admin-course/edit-course/edit-course.component';
+import { ListCourseComponent } from './admin/admin-course/list-course/list-course.component';
+import { AdminCourseComponent } from './admin/admin-course/admin-course.component';
 
 
 const routes: Routes = [
@@ -15,10 +20,22 @@ const routes: Routes = [
       path: "trainee",
       component : TraineeComponent,
        children: [
-          {path: "traineeCompleted", component: TraineeCompletedComponent},
+
+          {path: "completedTrainings", component: TraineeCompletedComponent},
           {path: "searchTrainings", component: TraineeSearchComponent},
-          {path: "traineeProgress", component: TraineeInprogressComponent}
+          {path: "currentTrainings", component: TraineeInprogressComponent},
+          {path: "", component:TraineeInprogressComponent}
        ]
+    },
+    {
+      path:"admin",
+      component : AdminComponent,
+      children : [
+        {path: "addCourse", component: AddCourseComponent},
+        {path: "editCourse", component:EditCourseComponent},
+        {path: "listCourse", component:ListCourseComponent},
+        {path: "course", component:AdminCourseComponent}
+      ]
     }
   ]
 }
