@@ -1,0 +1,12 @@
+<nav class="navbar  navbar-expand-sm navbar-light bg-primary">
+    <div class="container">
+      <div id="idNav" class="collapse navbar-collapse flex-md-column">
+         <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a [routerLink]="['searchTrainings']" class="nav-link">Searched Trainings</a></li>
+          <li class="nav-item"><a [routerLink]="['currentTrainings']" class="nav-link">Current Trainings</a></li>
+          <li class="nav-item"><a [routerLink]="['completedTrainings']" class="nav-link">Completed Trainings</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
