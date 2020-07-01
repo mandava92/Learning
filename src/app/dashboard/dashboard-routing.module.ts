@@ -10,6 +10,7 @@ import { AddCourseComponent } from './admin/admin-course/add-course/add-course.c
 import { EditCourseComponent } from './admin/admin-course/edit-course/edit-course.component';
 import { ListCourseComponent } from './admin/admin-course/list-course/list-course.component';
 import { AdminCourseComponent } from './admin/admin-course/admin-course.component';
+import { RoleGuardService } from '../auth/role-guard.service';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     {
       path: "trainee",
       component : TraineeComponent,
+      canActivate: [RoleGuardService],
        children: [
 
           {path: "completedTrainings", component: TraineeCompletedComponent},
@@ -29,6 +31,7 @@ const routes: Routes = [
     },
     {
       path:"admin",
+      canActivate: [RoleGuardService],
       component : AdminComponent,
       children : [
         {path: "addCourse", component: AddCourseComponent},

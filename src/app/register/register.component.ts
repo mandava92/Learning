@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user = new User("","","","","");
+  user = new User();
   resUser:User;
   roles = ["Admin","Mentor","Trainee"];
   alreadyExists = false;

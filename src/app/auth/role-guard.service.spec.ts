@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BatchService } from './batch.service';
+import { RoleGuardService } from './role-guard.service';
 
-describe('BatchService', () => {
-  let service: BatchService;
+describe('RoleGuardService', () => {
+  let service: RoleGuardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BatchService);
+    service = TestBed.inject(RoleGuardService);
   });
 
   it('should be created', () => {
