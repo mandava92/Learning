@@ -17,8 +17,11 @@ import { AdminCourseComponent } from './admin/admin-course/admin-course.componen
 import { AddCourseComponent } from './admin/admin-course/add-course/add-course.component';
 import { ListCourseComponent } from './admin/admin-course/list-course/list-course.component';
 import { EditCourseComponent } from './admin/admin-course/edit-course/edit-course.component';
-import { CourseComponent } from '../Models/course/course.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MentorComponent } from './mentor/mentor.component';
+import { SearchTrainingsComponent } from './mentor/search-trainings/search-trainings.component';
+import { CompletedTrainingsComponent } from './mentor/completed-trainings/completed-trainings.component';
+import { ProgressTrainingsComponent } from './mentor/progress-trainings/progress-trainings.component';
+import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval-trainings.component';
 // import { CommonModule } from '@angular/common';
 // import { RatingsComponent } from '../ratings/ratings.component';
 
@@ -37,7 +40,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AddCourseComponent,
     ListCourseComponent,
     EditCourseComponent,
-    CourseComponent
+    MentorComponent,
+    SearchTrainingsComponent,
+    CompletedTrainingsComponent,
+    ProgressTrainingsComponent,
+    ApprovalTrainingsComponent
     
     // RatingsComponent
   ],

@@ -1,0 +1,26 @@
+<table class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Batch</th>
+            <th>Rating</th>
+            <th>Payment</th>
+            <th>Total Students</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let completedTraining of completedTrainings">
+            <td>{{completedTraining.courseName}}</td>
+            <td>{{completedTraining.batchName}}</td>
+            <td><div>               
+                <app-ratings [rating]="completedTraining.ratings"></app-ratings>
+            </div></td>
+            <td>{{completedTraining.fee}}</td>
+            <td>{{completedTraining.totalStudents}}</td>
+        </tr>
+        
+       </tbody>
+      </table>  
+      <!-- <div #starrating> </div> -->
+
+     

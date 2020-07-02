@@ -13,7 +13,7 @@ export class RoleGuardService implements CanActivate{
     private router: Router,
     private authService: AuthService
 ) {}
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | Promise<boolean> | boolean {
+  canActivate() : boolean {
     let user = new User();
     this.authService.userValue.subscribe(
       data =>{
@@ -24,7 +24,7 @@ export class RoleGuardService implements CanActivate{
       this.router.navigate(['/dashboard/admin']);
       return true;      
     }      
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    this.router.navigate(['/login']);
     return false;
   }
 }

@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { TraineeService } from './dashboard/trainee/trainee.service';
+import { RoleGuardService } from './auth/role-guard.service';
 
 
 
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path: "register", component : RegisterComponent} ,
   {path: "login",component : LoginComponent},
   {path: "ratings", component: RatingsComponent},
-  {path: "dashboard",loadChildren : () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)}
+  {path: "dashboard",  loadChildren : () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)}
 ];
 
 @NgModule({

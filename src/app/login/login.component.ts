@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService:LoginService,
     private formBuilder:FormBuilder,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
   
   loginForm = this.formBuilder.group({
     userName: ["", Validators.required],
@@ -31,13 +32,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(){
-
+  onLogin() {
+    console.log(this.loginForm.value);
     let user = new User();
+    user.role = "Admin";   
+    //this.authService.userValue.next(user);
+    this.roleRouting(user.role);
+  }
 
-    user.role = "Admin";
-   
-    this.authService.userValue.next(user)
+  roleRouting(role) {
+    if(role == "Admin")
+        this.router.navigate(['dashboard/admin/course']);
+    if(role == "Trainee")
+        this.router.navigate(['dashboard/trainee']);
+    if(role == "Mentor") 
+        this.router.navigate(['dashboard/mentor']);       
   }
 
 }
