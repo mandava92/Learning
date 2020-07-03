@@ -15,6 +15,8 @@ label,h3 {
     font-family: "New Century Schoolbook"
 }  
 
-h3 {
+.warning{
+
+color: orangered;
 
 }

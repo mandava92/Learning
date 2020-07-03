@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentTrainings } from '../trainee-inprogress/student-trainings';
+import { StudentTrainings } from 'src/app/Models/student-trainings';
 
 @Component({
   selector: 'app-trainee-search',
@@ -21,11 +21,11 @@ export class TraineeSearchComponent implements OnInit {
   getTrainings(){
     let st = new StudentTrainings();
     st.trainerCourseId =123;
-    st.trainingName= "java";
+    st.courseName= "java";
     st.batchName = "weekend";
     let st1 = new StudentTrainings();
     st1.trainerCourseId =1234;
-    st1.trainingName= "java";
+    st1.courseName= "java";
     st1.batchName = "weekend";
     this.searchTrainings.push(st1);
     this.searchTrainings.push(st);

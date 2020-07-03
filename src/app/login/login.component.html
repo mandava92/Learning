@@ -41,7 +41,7 @@
                         <input type="checkbox">Remember Me
                     </div>
                     <div class="form-group">
-                        <input [disabled]="loginForm.invalid && loginForm.touched" type="submit" value="Login" class="btn float-right login_btn">
+                        <input [disabled]="(loginForm.invalid && loginForm.touched) || (loginForm.untouched)" type="submit" value="Login" class="btn float-right login_btn">
                     </div>
                 </form>
             </div>
@@ -55,5 +55,4 @@
             </div>
         </div>
     </div>
-    
 </div>

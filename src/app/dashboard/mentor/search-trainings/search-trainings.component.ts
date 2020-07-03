@@ -14,7 +14,7 @@ export class SearchTrainingsComponent implements OnInit {
     this.getTrainings();
   }
 
-  registerCourse(courseId:number) {
+  registerTraining(courseId:number) {
     console.log(courseId);
   }
 

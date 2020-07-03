@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentTrainings } from './student-trainings';
 import { TraineeService } from '../trainee.service';
+import { StudentTrainings } from 'src/app/Models/student-trainings';
 
 @Component({
   selector: 'app-trainee-inprogress',
@@ -26,7 +26,7 @@ progress = 60;
                           },
                           error => {
                             let st =  new StudentTrainings();
-                            st.trainingName = "Test";
+                            st.courseName = "Test";
                             st.batchName = "Test";
                             this.currentTrainings.push(st);
                           } 

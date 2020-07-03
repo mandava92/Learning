@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { StudentTrainings } from '../trainee-inprogress/student-trainings';
 import { TraineeService } from '../trainee.service';
+import { StudentTrainings } from 'src/app/Models/student-trainings';
 
 @Component({
   selector: 'app-trainee-completed',
@@ -25,8 +25,10 @@ export class TraineeCompletedComponent implements OnInit {
                           },
                           error => {
                             let st = new StudentTrainings();
-                            st.trainingName = "test";
-                            st.studentFee = 12.3;
+                            st.courseName = "test";
+                            st.mentorName = "Maya";
+                            st.batchName = "Mornings";
+                            st.studentFee = 123;
                             st.ratings = 2.5;
                             this.completedTrainings.push(st);
                           }
