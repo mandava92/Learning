@@ -1,14 +1,20 @@
-html,body {
-    background-image: url('../../assets/images/login.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    font-family: 'Numans', sans-serif;
-  }
-  .container{
+.bg-img {
+  background-image: url('../../assets/images/login.png');
+  min-height: 100vh;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+  /* .container{
     height: 100%;
     align-content: center;
   }
+
+  .register {
+
+  } */
   
   .card{
     height: 75%;
@@ -42,7 +48,7 @@ html,body {
     width: 100px;
   }
   
-  .login_btn:hover{
+  .login_btn:hover:enabled{
     color: black;
     background-color: white;
   }

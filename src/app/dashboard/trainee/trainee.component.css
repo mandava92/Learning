@@ -2,12 +2,12 @@ body {
     font-family: "New Century Schoolbook"
    }
    .main-header {
-    padding-top: 95px;
+    padding-top: 60px;
     font-family: "MS Mincho";
     color:white;    
-    background: no-repeat center center;
+    /* background: no-repeat center center;
     background-image: url("../../../assets/images/hbg.jpg");
-    background-size: cover;
+    background-size: cover; */
    }
    .header-text {
     color:white;
@@ -15,6 +15,6 @@ body {
    }
 
    .navbar {
-       background-color :#3c3d4d;
+       /* background-color :#3c3d4d; */
        
    }

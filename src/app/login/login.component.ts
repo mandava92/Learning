@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   })  
 
   ngOnInit(): void {
+    // document.body.classList.add("bg-img");
   }
 
   onLogin() {

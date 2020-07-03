@@ -1,8 +1,11 @@
-<mat-toolbar color="primary" class="navbar mx-auto nav-light">
+<div class="main-header">
+<mat-toolbar class="navbar">
   <div>Courses</div>
   <div>
-      <button class="btn btn-warning mr-2" [routerLink] = "['addCourse']">Add Courses</button>
-      <button class="btn btn-warning" [routerLink] = "['listCourse']">List Courses</button>
+      <button class="btn btn-dark  mr-2" [routerLink] = "['addCourse']">Add Courses</button>
+      <button class="btn btn-dark" [routerLink] = "['listCourse']">List Courses</button>
   </div>
 </mat-toolbar>
+</div>
+
 <router-outlet></router-outlet>

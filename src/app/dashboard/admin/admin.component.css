@@ -1,7 +1,10 @@
-.navbar {
-    background-color: slategray;
-}
 
-button {
-    background-color: teal;
-}
+
+.main-header {
+    padding-top: 60px;
+    font-family: "MS Mincho";
+    color:white;    
+    /* background: no-repeat center center;
+    background-image: url("../../../assets/images/hbg.jpg");
+    background-size: cover; */
+   }
