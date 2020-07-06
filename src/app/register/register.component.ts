@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
 import { RegisterService } from './register.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user = new User();
-  resUser:User;
   roles = ["Admin","Mentor","Trainee"];
   alreadyExists = false;
   constructor(private registrationService: RegisterService,
@@ -22,26 +19,22 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(registrationForm:NgForm){
     console.log(registrationForm.value);
-    this.registrationService.getUser(registrationForm.value.userName)
-                            .subscribe(
-                              data=>{
+    // this.registrationService.getUser(registrationForm.value.userName)
+    //                         .subscribe(
+    //                           data=>{
 
-                              },
-                              error=>{
-                                this.alreadyExists = true;
-                                this.router.navigate(["register"]);
-                              }
-                            );
+    //                           },
+    //                           error=>{
+    //                             this.alreadyExists = true;
+    //                             this.router.navigate(["register"]);
+    //                           }
+    //                         );
 
     this.registrationService.register(registrationForm.value)
                             .subscribe(
                               data => {
-                                this.resUser = data;
-                                console.log(this.resUser);
                               },
                               error => {
-                                this.resUser = error.statusText;
-                                console.log(this.resUser);
                               });
   }
 

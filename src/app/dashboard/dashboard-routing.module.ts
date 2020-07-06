@@ -25,7 +25,7 @@ const routes: Routes = [
     {
       path: "trainee",
       component : TraineeComponent,
-      // canActivate : [RoleGuardService],
+      canActivate : [RoleGuardService],
       data: { roles: ["Trainee"] },
        children: [
         {path: "completedTrainings", component: TraineeCompletedComponent},
