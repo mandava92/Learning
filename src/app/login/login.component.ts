@@ -30,24 +30,30 @@ export class LoginComponent implements OnInit {
   })  
 
   ngOnInit(): void {
-    // document.body.classList.add("bg-img");
   }
 
   onLogin() {
-    console.log(this.loginForm.value);
-    let user = new User();
-    user.role = "Admin";   
-    //this.authService.userValue.next(user);
-    this.roleRouting(user.role);
+    let user:User = this.loginForm.value;
+    console.log(user);
+    this.loginService.login(user).subscribe(
+      data => {
+        localStorage.setItem("user",JSON.stringify(user));
+        this.roleRouting(user.role);
+      },
+      error => {
+        localStorage.setItem("user",JSON.stringify(user));
+        this.roleRouting(user.role);
+      }
+    );   
+    
   }
 
-  roleRouting(role) {
+  roleRouting(role:string) {
     if(role == "Admin")
-        this.router.navigate(['dashboard/admin/course']);
+        this.router.navigate(['/admin/course']);
     if(role == "Trainee")
-        this.router.navigate(['dashboard/trainee']);
+        this.router.navigate(['/trainee']);
     if(role == "Mentor") 
-        this.router.navigate(['dashboard/mentor']);       
+        this.router.navigate(['/mentor']);       
   }
-
 }

@@ -13,18 +13,14 @@ export class RoleGuardService implements CanActivate{
     private router: Router,
     private authService: AuthService
 ) {}
-  canActivate() : boolean {
-    let user = new User();
-    this.authService.userValue.subscribe(
-      data =>{
-        user = data;
-      }
-    );
-    if (user && user.role && user.role == "Admin") {      
-      this.router.navigate(['/dashboard/admin']);
-      return true;      
-    }      
-    this.router.navigate(['/login']);
+  canActivate(route:ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean {
+    let user:User = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    console.log(route.data.roles.indexOf("Admin"));
+    if(route.data.roles && route.data.roles.indexOf(user.role) >=0) {
+      return true;
+    }
     return false;
   }
+ 
 }

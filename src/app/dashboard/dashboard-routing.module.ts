@@ -25,35 +25,39 @@ const routes: Routes = [
     {
       path: "trainee",
       component : TraineeComponent,
-      //canActivate : [RoleGuardService],
+      // canActivate : [RoleGuardService],
+      data: { roles: ["Trainee"] },
        children: [
-
-          {path: "completedTrainings", component: TraineeCompletedComponent},
-          {path: "searchTrainings", component: TraineeSearchComponent},
-          {path: "currentTrainings", component: TraineeInprogressComponent},
-          {path: "", component:TraineeInprogressComponent}
+        {path: "completedTrainings", component: TraineeCompletedComponent},
+        {path: "searchTrainings", component: TraineeSearchComponent},
+        {path: "currentTrainings", component: TraineeInprogressComponent},
+        {path: "", component:TraineeInprogressComponent}
        ]
     },
     {
       path:"admin",
+      data: { roles: ["Admin"] },
       component : AdminComponent,
+      canActivate : [RoleGuardService],
       children : [
         {path: "course", component:AdminCourseComponent, children : [
-          {path: "addCourse", component: AddCourseComponent},
-          {path: "editCourse", component:EditCourseComponent},
-          {path: "listCourse", component:ListCourseComponent},
-          {path: "", component:ListCourseComponent}
+        {path: "addCourse", component: AddCourseComponent},
+        {path: "editCourse", component:EditCourseComponent},
+        {path: "listCourse", component:ListCourseComponent},
+        {path: "", component:ListCourseComponent}
         ]}
       ]
     },
     {
       path:"mentor",
+      data: { roles: ["Mentor"] },
+      canActivate: [RoleGuardService],
       component: MentorComponent,
       children : [
         {path: "searchTrainings", component: SearchTrainingsComponent},
         {path: "currentTrainings", component : ProgressTrainingsComponent},
-        {path : "completedTrainings", component : CompletedTrainingsComponent},
-        {path : "approvalTrainings", component: ApprovalTrainingsComponent}
+        {path: "completedTrainings", component : CompletedTrainingsComponent},
+        {path: "approvalTrainings", component: ApprovalTrainingsComponent}
       ]
     }
   ]

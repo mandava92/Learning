@@ -26,11 +26,11 @@ export class ApprovalTrainingsComponent implements OnInit {
     this.approvals.push(st);
   }
 
-  approveTraining() {
+  approveTraining(element) {
 
   }
 
-  rejectTraining() {
+  rejectTraining(element) {
 
   }
 

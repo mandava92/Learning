@@ -35,7 +35,7 @@ export class AddCourseComponent implements OnInit {
     this.loadBatches();
   }
 
-  loadSkills() {
+  loadSkills() {   
     this.skillService.getSkills().subscribe(
                 data => {
                   this.skills = data;
