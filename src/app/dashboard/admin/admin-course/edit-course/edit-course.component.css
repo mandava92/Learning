@@ -1,4 +1,4 @@
-.card{
+.card {
     height: 370px;
     margin-top: 10%;
     margin-bottom: auto;
@@ -6,15 +6,16 @@
     /* background-color: yellowgreen !important; */
     font-weight: bold;
     font-family: "New Century Schoolbook"
-    }
+}
+
 .card-header {
     background-color: skyblue !important;
 }
-label,h3 {
+
+label,
+h3 {
     font-weight: bold;
     font-family: "New Century Schoolbook"
-}  
-
-h3 {
-
 }
+
+h3 {}

@@ -9,17 +9,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let completedTraining of completedTrainings">
+        <tr *ngFor="let completedTraining of completedTrainings">
             <td>{{completedTraining.courseName}}</td>
             <td>{{completedTraining.batchName}}</td>
-            <td><div>               
-                <app-ratings [rating]="completedTraining.ratings"></app-ratings>
-            </div></td>
+            <td>
+                <div>
+                    <app-ratings [rating]="completedTraining.ratings"></app-ratings>
+                </div>
+            </td>
             <td>{{completedTraining.payment}}</td>
             <td>{{completedTraining.totalNoOfStudents}}</td>
         </tr>
-       </tbody>
-      </table>  
-      <!-- <div #starrating> </div> -->
-
-     
+    </tbody>
+</table>
+<!-- <div #starrating> </div> -->
