@@ -1,7 +1,9 @@
-import { StudentTrainings } from './student-trainings';
+import {
+    StudentTrainings
+} from './student-trainings';
 
 describe('StudentTrainings', () => {
-  it('should create an instance', () => {
-    expect(new StudentTrainings()).toBeTruthy();
-  });
+    it('should create an instance', () => {
+        expect(new StudentTrainings()).toBeTruthy();
+    });
 });

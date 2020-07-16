@@ -1,60 +1,60 @@
-    <div class = "bg-img">
-    <div class="container register">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card mt-5">
-                <div class="card-header mb-n4">
-                    <h3>Registration</h3>
-                </div>
-                <div class="card-body p-5">
-                    <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+    <div class="bg-img">
+        <div class="container register">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card mt-5">
+                    <div class="card-header mb-n4">
+                        <h3>Registration</h3>
+                    </div>
+                    <div class="card-body p-5">
+                        <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" required #firstName="ngModel" [(ngModel)]="user.firstName" [class.is-invalid]="firstName.invalid && firstName.touched" class="form-control" name="firstName" placeholder="First Name">
+                                <small class="text-warning" [class.d-none]="firstName.valid || firstName.untouched">Firstname is required</small>
                             </div>
-                            <input type="text" required #firstName="ngModel" [(ngModel)]="user.firstName" [class.is-invalid]="firstName.invalid && firstName.touched" class="form-control" name="firstName" placeholder="First Name">
-                            <small class="text-warning" [class.d-none]="firstName.valid || firstName.untouched">Firstname is required</small>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" required #lastName="ngModel" [(ngModel)]="user.lastName" [class.is-invalid]="lastName.invalid && lastName.touched" class="form-control" name="lastName" placeholder="Last Name">
+                                <small class="text-warning" [class.d-none]="lastName.valid || lastName.untouched">Lastname is required</small>
                             </div>
-                            <input type="text" required #lastName="ngModel" [(ngModel)]="user.lastName" [class.is-invalid]="lastName.invalid && lastName.touched" class="form-control" name="lastName" placeholder="Last Name">
-                            <small class="text-warning" [class.d-none]="lastName.valid || lastName.untouched">Lastname is required</small>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-address-card"></i></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-address-card"></i></span>
+                                </div>
+                                <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #userName="ngModel" [(ngModel)]="user.userName" class="form-control" [class.is-invalid]="userName.invalid && userName.touched" name="userName" placeholder="Email/User Name">
+                                <div *ngIf="userName.errors && (userName.invalid || userName.touched)">
+                                    <small *ngIf="userName.errors.required" class="text-warning" [class.d-none]="userName.valid || userName.untouched">Username is required</small>
+                                    <small *ngIf="userName.errors.pattern" class="text-warning" [class.d-none]="userName.valid || userName.untouched">Invalid email id</small>
+                                    <small *ngIf="alreadyExists" class="text-warning" [class.d-none]="alreadyExists">Username already exists</small>
+                                </div>
                             </div>
-                            <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #userName="ngModel" [(ngModel)]="user.userName" class="form-control" [class.is-invalid]="userName.invalid && userName.touched" name="userName" placeholder="Email/User Name">
-                            <div *ngIf="userName.errors && (userName.invalid || userName.touched)">
-                                <small *ngIf="userName.errors.required" class="text-warning" [class.d-none]="userName.valid || userName.untouched">Username is required</small>
-                                <small *ngIf="userName.errors.pattern" class="text-warning" [class.d-none]="userName.valid || userName.untouched">Invalid email id</small>
-                                <small *ngIf="alreadyExists" class="text-warning" [class.d-none]="alreadyExists">Username already exists</small>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" required #password="ngModel" [(ngModel)]="user.password" class="form-control" [class.is-invalid]="password.invalid && password.touched" name="password" placeholder="Password">
+                                <small class="text-warning" [class.d-none]="password.valid || password.untouched">Password is required</small>
                             </div>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                </div>
+                                <select name="role" required #role="ngModel" class="form-control" [(ngModel)]="user.role" [class.is-invalid]="role.invalid && role.touched">
+                                    <option value="">Choose Role</option>
+                                    <option *ngFor="let role of roles">{{role}}</option>
+                                </select>
+                                <small class="text-warning" [class.d-none]="role.valid || role.untouched">Please choose role</small>
                             </div>
-                            <input type="password" required #password="ngModel" [(ngModel)]="user.password" class="form-control" [class.is-invalid]="password.invalid && password.touched" name="password" placeholder="Password">
-                            <small class="text-warning" [class.d-none]="password.valid || password.untouched">Password is required</small>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                            <div class="form-group">
+                                <input type="submit" [disabled]="registrationForm.invalid" value="Sign Up" class="btn float-right login_btn">
                             </div>
-                            <select name="role" required #role="ngModel" class="form-control" [(ngModel)]="user.role" [class.is-invalid]="role.invalid && role.touched">
-                                <option value="">Choose Role</option>
-                                <option *ngFor="let role of roles">{{role}}</option>
-                            </select>
-                            <small class="text-warning" [class.d-none]="role.valid || role.untouched">Please choose role</small>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit"  [disabled]="registrationForm.invalid" value="Sign Up" class="btn float-right login_btn">
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

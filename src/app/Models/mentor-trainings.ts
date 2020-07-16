@@ -1,5 +1,5 @@
 export class MentorTrainings {
-    id:number;
+    id: number;
     userId;
     courseId;
     ratings;
