@@ -16,6 +16,7 @@ import { SearchTrainingsComponent } from './mentor/search-trainings/search-train
 import { CompletedTrainingsComponent } from './mentor/completed-trainings/completed-trainings.component';
 import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval-trainings.component';
 import { ProgressTrainingsComponent } from './mentor/progress-trainings/progress-trainings.component';
+import {Role} from '../Models/role';
 
 
 const routes: Routes = [
@@ -25,8 +26,7 @@ const routes: Routes = [
     {
       path: "trainee",
       component : TraineeComponent,
-      canActivate : [RoleGuardService],
-      data: { roles: ["Trainee"] },
+      data: { roles: [Role.Trainee] },
        children: [
         {path: "completedTrainings", component: TraineeCompletedComponent},
         {path: "searchTrainings", component: TraineeSearchComponent},
@@ -36,9 +36,9 @@ const routes: Routes = [
     },
     {
       path:"admin",
-      data: { roles: ["Admin"] },
+      data: { roles: [Role.Admin] },
       component : AdminComponent,
-      canActivate : [RoleGuardService],
+      //canActivate : [RoleGuardService],
       children : [
         {path: "course", component:AdminCourseComponent, children : [
         {path: "addCourse", component: AddCourseComponent},
@@ -50,8 +50,8 @@ const routes: Routes = [
     },
     {
       path:"mentor",
-      data: { roles: ["Mentor"] },
-      canActivate: [RoleGuardService],
+      data: { roles: [Role.Mentor] },
+     // canActivate: [RoleGuardService],
       component: MentorComponent,
       children : [
         {path: "searchTrainings", component: SearchTrainingsComponent},

@@ -10,6 +10,14 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   roles = ["Admin","Mentor","Trainee"];
+  user={
+          "firstName":"nagamani",
+          "lastName":"m",
+          "password":"",
+          "role": "Admin",
+          "userName":"nagamanim"
+        };
+  
   alreadyExists = false;
   constructor(private registrationService: RegisterService,
     private router: Router) { }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../register/user';
+import {Role} from '../Models/role';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +11,17 @@ import { User } from '../register/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  roles = ["Admin","Mentor","Trainee"];
+  roles =[{"rolename":"Admin","roleId":Role.Admin}, 
+{"rolename":"Mentor", "roleId":Role.Mentor},
+{"rolename":"Trainee", "roleId":Role.Trainee},
+]
   // loginForm = new FormGroup({
   //   userName: new FormControl(''),
   //   password: new FormControl(''),
   //   role: new FormControl('Trainee')
   // });
 
-  constructor(private loginService:LoginService,
+  constructor(
     private formBuilder:FormBuilder,
     private authService: AuthService,
     private router: Router) { }
@@ -34,26 +37,20 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     let user:User = this.loginForm.value;
-    console.log(user);
-    this.loginService.login(user).subscribe(
+    this.authService.login(user.userName, user.password).subscribe(
       data => {
-        localStorage.setItem("user",JSON.stringify(user));
-        this.roleRouting(user.role);
-      },
-      error => {
-        localStorage.setItem("user",JSON.stringify(user));
-        this.roleRouting(user.role);
+        this.roleRouting(user.role); // change later
       }
     );   
     
   }
 
   roleRouting(role:string) {
-    if(role == "Admin")
+    if(role == Role.Admin)
         this.router.navigate(['/admin/course']);
-    if(role == "Trainee")
+    if(role == Role.Trainee)
         this.router.navigate(['/trainee']);
-    if(role == "Mentor") 
+    if(role == Role.Mentor) 
         this.router.navigate(['/mentor']);       
   }
 }

@@ -33,7 +33,7 @@
                         <select [class.is-invalid]="loginForm.get('role').invalid && 
                         loginForm.get('role').touched" name="role"  class="form-control" formControlName="role">
                             <option value="">Login As</option>
-                            <option *ngFor="let role of roles">{{role}}</option>
+                            <option value = {{role.roleId}} *ngFor="let role of roles">{{role.rolename}}</option>
                         </select>
                         <small class="text-warning" [class.d-none]="loginForm.get('role').valid || 
                         loginForm.get('role').untouched">Choose role</small>

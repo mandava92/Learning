@@ -29,7 +29,7 @@ export class TraineeCompletedComponent implements OnInit {
                             st.mentorName = "Maya";
                             st.batchName = "Mornings";
                             st.studentFee = 123;
-                            st.ratings = 2.5;
+                            st.ratings = 2.8;
                             this.completedTrainings.push(st);
                           }
                         );

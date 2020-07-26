@@ -4,16 +4,17 @@ import { User } from './user';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  _url:string = "http://localhost:8080/api/user";
+  _url:string = "api/auth/signup";
   constructor(private _http: HttpClient) { }
 
   register(user:User) : Observable<any>{
-    return this._http.post<any>(this._url, user);
+    return this._http.post<any>(`${environment.apiUrl}/api/auth/signup`, user);
   }
 
   getUser(userName:string) {

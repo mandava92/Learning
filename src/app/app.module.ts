@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,24 +10,38 @@ import { SharedModule } from './shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedGeneralModule } from './shared-general.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
-  
-    
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     SharedGeneralModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    })
   ],
-  providers: [],
+   providers: [ { 
+    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+
+    // provider used to create fake backend
+    // fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
