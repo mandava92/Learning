@@ -20,27 +20,27 @@ export class SearchTrainingsComponent implements OnInit {
 
   getTrainings(){
     let st = new Course();
-    st.id = 1;
+    st.couseId = "1";
     st.courseName = "Advanced Java";
     st.batchName = "weekend";   
     this.courses.push(st);
     st = new Course();
-    st.id = 1;
+    st.couseId = "1";
     st.courseName = "Advanced Java";
     st.batchName = "weekend";   
     this.courses.push(st);
     st = new Course();
-    st.id = 1;
+    st.couseId = "1";
     st.courseName = "Complete UI";
     st.batchName = "weekend";   
     this.courses.push(st);
     st = new Course();
-    st.id = 1;
+    st.couseId = "1";
     st.courseName = "Complete UI";
     st.batchName = "weekend";   
     this.courses.push(st);
     st = new Course();
-    st.id = 1;
+    st.couseId = "1";
     st.courseName = "Complete UI";
     st.batchName = "weekend";   
     this.courses.push(st);

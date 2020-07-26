@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/Models/course';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CourseService } from '../course.service';
 import { Skill } from 'src/app/Models/skill';
 import { Batch } from 'src/app/Models/batch';
@@ -17,34 +17,43 @@ export class ListCourseComponent implements OnInit {
   displayedColumns: string[] = ['id', 'courseName', 'skillName','batchName','mentorShare','studentFee','action'];
   pushData:boolean = false;
 
-  constructor(private router:Router, private courseService:CourseService) { }
-
+  constructor(private router:Router, private courseService:CourseService, private route: ActivatedRoute) { }
+ 
   ngOnInit(): void {
     this.getAllCourses();
   }
 
   getAllCourses() {
-    let course1 = new Course();
-    course1.id = 1;
-    course1.batchId = 1;
-    course1.skillId = 1;
-    course1.courseName = "Advanced java";
-    course1.mentorShare = 20;
-    course1.studentFee = 100;
-    course1.skillName = "Java";
-    course1.batchName = "Weekend";
+    this.route.data.subscribe(
+      
+      data =>{
+        console.log('Data :', data);
+        this.courses = data.courses;
+      } 
+      
+    );
+  }
+  //   let course1 = new Course();
+  //   course1.id = 1;
+  //   course1.batchId = 1;
+  //   course1.skillId = 1;
+  //   course1.courseName = "Advanced java";
+  //   course1.mentorShare = 20;
+  //   course1.studentFee = 100;
+  //   course1.skillName = "Java";
+  //   course1.batchName = "Weekend";
 
-    this.courses.push(course1);
+  //   this.courses.push(course1);
+  // }
+
+  deleteCourse(courseId) {
+    console.log(courseId);
   }
 
-  deleteCourse(course:Course) {
-    console.log(course);
-  }
-
-  editCourse(course:Course){
-    console.log(course);
-    this.courseService.behaviour.next(course);
-    this.router.navigate(['editCourse', { id: course.id }]);
+  editCourse(courseId){
+    console.log(courseId);
+    this.courseService.behaviour.next(courseId);
+    this.router.navigate(['/admin/course/editCourse', courseId ]);
   }
 
 }

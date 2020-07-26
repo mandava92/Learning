@@ -9,22 +9,21 @@
   }
   
   .content {
-    padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 2.5rem;    
   }
   
   .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /* Footer height */
+    height: 2.5rem;            
   }
 
   .header {
-    /* position: fixed; */
-    /* top: 1; */
+   
     
     width: 100%;
     z-index: 1;
     position: fixed;
-    /* height: 2.5rem;            Footer height */
+    
   }

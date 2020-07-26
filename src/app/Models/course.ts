@@ -1,10 +1,12 @@
 export class Course {
-    id: number;
-    courseName: String;
-    skillName: string;
+    couseId: string;
+    documentVersion : string;
+    courseName: string;
+    skillId: string;
+    batchId: string;
+    studentFee: string;
+    mentorShare: string;
     batchName: string;
-    studentFee: number;
-    mentorShare: number;
-    skillId: number;
-    batchId: number;
+    skillName: string;
+    mentorName: string;
 }

@@ -2,7 +2,7 @@
 
     <ng-container matColumnDef = "id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.couseId}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef = "courseName">
@@ -33,8 +33,8 @@
       <ng-container matColumnDef = "action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
-            <button class="btn btn-primary mr-2" (click)="editCourse(element)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteCourse(element)">Delete</button>
+            <button class="btn btn-primary mr-2" (click)="editCourse(element.couseId)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteCourse(element.couseId)">Delete</button>
           </mat-cell>
       </ng-container>
 

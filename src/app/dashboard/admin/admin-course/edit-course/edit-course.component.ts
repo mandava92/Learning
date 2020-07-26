@@ -8,6 +8,7 @@ import { createAotUrlResolver } from '@angular/compiler';
 import { CourseService } from '../course.service';
 import { SkillService } from '../../admin-skill/skill.service';
 import { BatchService } from '../../admin-batch/batch.service';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-edit-course',
@@ -17,8 +18,12 @@ import { BatchService } from '../../admin-batch/batch.service';
 export class EditCourseComponent implements OnInit {
   skills: Skill[] = [];
   batches: Batch[] = [];
+  course;
+  courseId;
 
-  constructor(private skillService: SkillService,
+  constructor(private notification: NotificationService,
+    private route: ActivatedRoute,
+    private skillService: SkillService,
     private batchService: BatchService,
     private formBuilder: FormBuilder, private router:ActivatedRoute,
     private courseService:CourseService) { }
@@ -34,8 +39,10 @@ export class EditCourseComponent implements OnInit {
   ngOnInit(): void {
     this.loadSkills();
     this.loadBatches();
-    console.log();
-    this.getCourseById(this.router.snapshot.params['id']);
+    this.courseId = this.route.snapshot.paramMap.get('id');
+    console.log(this.courseId)
+    // console.log(this.router.snapshot.params['id'])
+    this.getCourseById(+this.courseId);
     // this.courseService.behaviour.subscribe(
     //   data => {
     //     console.log(data);
@@ -44,40 +51,52 @@ export class EditCourseComponent implements OnInit {
     // )    
   }
 
+  updateCourseValue() {
+    this.courseForm.setValue({
+      batchId: this.course.batchId,
+      courseName: this.course.courseName,
+      mentorShare:  this.course.mentorShare,
+      skillId: this.course.skillId,
+      studentFee: this.course.studentFee
+    });
+  }
+
   getCourseById(id:number) {
-    this.courseService.getCourseById(id);
+    this.courseService.getCourseById(id).subscribe(
+      data => {
+        this.course = data;
+        this.updateCourseValue();
+      }
+    );
   }
 
   loadSkills() {
     this.skillService.getSkills().subscribe(
                 data => {
-                  this.skills = data;
-                },
-                error => {
-                  let skill = new Skill();
-                  skill.id = 1;
-                  skill.name = "Java";
-                  this.skills.push(skill);
+                  this.skills = data
                 })
   }
 
   loadBatches() {
     this.batchService.getBatches().subscribe(
       data => {
-        this.batches = data;
-      },
-      error => {
-        let skill = new Batch();
-        skill.id = 1;
-        skill.name = "Weekend";                  
-        this.batches.push(skill);
+        this.batches = data
       })
 
   }
 
   updateCourse() {
-    console.log(this.courseForm.value);
-    this.courseService.updateCourse(this.courseForm.value);
+  
+    this.course =this.courseForm.value;
+    this.course.id=this.courseId;
+    console.log(this.course);
+    this.courseService.updateCourse(this.courseForm.value).subscribe(
+      data =>{
+        this.course = data;
+        this.notification.showSuccess("Success","Data updated successfully")
+        this.updateCourseValue();
+      } 
+    );
   }
 
 }

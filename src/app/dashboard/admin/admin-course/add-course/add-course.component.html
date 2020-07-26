@@ -13,7 +13,7 @@
         <select formControlName = "skillId" class="form-control">
             <option value="">Choose Skill</option>
                 <!-- <div  > -->
-                    <option  *ngFor = "let skill of skills" value="{{skill.id}}">{{skill.name}}</option>
+                    <option  *ngFor = "let skill of skills" value="{{skill.id}}">{{skill.skillName}}</option>
                 <!-- </div> -->
         </select>
         <small class="warning" [class.d-none]="courseForm.get('skillId').valid || courseForm.get('skillId').untouched">Skill Required</small>
@@ -23,7 +23,7 @@
         <select formControlName = "batchId" class="form-control">
             <option value="">Choose batch</option>
             <!-- <div  > -->
-                <option *ngFor = "let batch of batches" value="{{batch.id}}">{{batch.name}}</option>
+                <option *ngFor = "let batch of batches" value="{{batch.id}}">{{batch.batchName}}</option>
             <!-- </div> -->
             
         </select>

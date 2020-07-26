@@ -17,6 +17,7 @@ import { CompletedTrainingsComponent } from './mentor/completed-trainings/comple
 import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval-trainings.component';
 import { ProgressTrainingsComponent } from './mentor/progress-trainings/progress-trainings.component';
 import {Role} from '../Models/role';
+import { CourseResolverService } from './course-resolver.service';
 
 
 const routes: Routes = [
@@ -42,8 +43,12 @@ const routes: Routes = [
       children : [
         {path: "course", component:AdminCourseComponent, children : [
         {path: "addCourse", component: AddCourseComponent},
-        {path: "editCourse", component:EditCourseComponent},
-        {path: "listCourse", component:ListCourseComponent},
+        {path: "editCourse/:id", component:EditCourseComponent},
+        {path: "listCourse", component:ListCourseComponent,
+          resolve: {
+            courses: CourseResolverService
+          }
+        },
         {path: "", component:ListCourseComponent}
         ]}
       ]

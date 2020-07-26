@@ -17,7 +17,11 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authenticationService.logout();
                 //location.reload(true);
             }
-            this.notification.showError("Something went wrong",err.message);
+            // && [201, 200].indexOf(err.status) === -1
+            if (!err.ok) {
+                this.notification.showError("Something went wrong",err.error);
+            }
+           
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))
