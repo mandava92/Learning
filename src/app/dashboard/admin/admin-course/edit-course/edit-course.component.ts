@@ -20,13 +20,15 @@ export class EditCourseComponent implements OnInit {
   batches: Batch[] = [];
   course;
   courseId;
+  version;
 
   constructor(private notification: NotificationService,
-    private route: ActivatedRoute,
     private skillService: SkillService,
     private batchService: BatchService,
-    private formBuilder: FormBuilder, private router:ActivatedRoute,
-    private courseService:CourseService) { }
+    private formBuilder: FormBuilder, private route:ActivatedRoute,
+    private courseService:CourseService,
+    private router: Router
+   ) { }
    
   courseForm = this.formBuilder.group({
     courseName : ["", Validators.required],
@@ -65,6 +67,7 @@ export class EditCourseComponent implements OnInit {
     this.courseService.getCourseById(id).subscribe(
       data => {
         this.course = data;
+        this.version = this.course.version;
         this.updateCourseValue();
       }
     );
@@ -89,12 +92,13 @@ export class EditCourseComponent implements OnInit {
   
     this.course =this.courseForm.value;
     this.course.id=this.courseId;
+    this.course.version=this.version
     console.log(this.course);
     this.courseService.updateCourse(this.courseForm.value).subscribe(
       data =>{
         this.course = data;
         this.notification.showSuccess("Success","Data updated successfully")
-        this.updateCourseValue();
+        this.router.navigate(['/admin/course/listCourse']);
       } 
     );
   }

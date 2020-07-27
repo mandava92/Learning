@@ -1,22 +1,22 @@
-<mat-table [dataSource] = "courses" class="mat-elevation-z8 mx-auto table">
+<mat-table [dataSource] = "courses" class="mat-elevation-z8 mx-auto table" matSort>
 
     <ng-container matColumnDef = "id">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.couseId}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef = "courseName">
-        <mat-header-cell *matHeaderCellDef> Course Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Course Name </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.courseName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef = "skillName">
-        <mat-header-cell *matHeaderCellDef> Skill Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Skill Name </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.skillName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef = "batchName">
-        <mat-header-cell *matHeaderCellDef> Batch Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Batch Name </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.batchName}} </mat-cell>
       </ng-container>
 
