@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseService } from '../course.service';
 import { SkillService } from '../../admin-skill/skill.service';
 import { BatchService } from '../../admin-batch/batch.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class AddCourseComponent implements OnInit {
   courseId;
 
   constructor(private notification: NotificationService,
-    private route: ActivatedRoute,
+    private route:Router,
     private skillService: SkillService,
     private batchService: BatchService,
     private formBuilder: FormBuilder, private router:ActivatedRoute,
@@ -42,8 +42,6 @@ export class AddCourseComponent implements OnInit {
    
   }
 
-  
-
   loadSkills() {
     this.skillService.getSkills().subscribe(
                 data => {
@@ -60,15 +58,13 @@ export class AddCourseComponent implements OnInit {
   }
 
   createCourse() {
-  
     this.course =this.courseForm.value;
-   
     console.log(this.course);
     this.courseService.updateCourse(this.course).subscribe(
       data =>{
         this.course = data;
         this.notification.showSuccess("Success","Data saved successfully")
-        this.courseForm.reset();
+        this.route.navigate(['/admin/course/']);
       } 
     );
   }

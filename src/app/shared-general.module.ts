@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSortModule } from '@angular/material/sort';
-import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     MatButtonModule,
     MatTableModule,
     MatToolbarModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class SharedGeneralModule { }

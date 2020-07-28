@@ -1,8 +1,11 @@
-<!-- <mat-toolbar color="primary" class="navbar mx-auto">
-    <div class="menu">
-        <button class="btn  mr-2" [routerLink] = "['course']">Courses</button>
-        <button class="btn  mr-2" [routerLink] = "['skills']">Skills</button>
-        <button class="btn " [routerLink] = "['batches']">Batches</button>
+<nav class="navbar  navbar-expand-sm main-header">
+    <div class="container">
+      <div id="idNav" class="collapse navbar-collapse flex-md-column">
+         <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a [routerLink]="['course']" class="nav-link">Courses</a></li>
+          <li class="nav-item"><a [routerLink]="['users']" class="nav-link">Users</a></li>
+        </ul>
+      </div>
     </div>
-  </mat-toolbar> -->
-  <router-outlet></router-outlet>
+</nav>
+<router-outlet></router-outlet>

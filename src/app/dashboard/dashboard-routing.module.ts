@@ -44,12 +44,11 @@ const routes: Routes = [
         {path: "course", component:AdminCourseComponent, children : [
         {path: "addCourse", component: AddCourseComponent},
         {path: "editCourse/:id", component:EditCourseComponent},
-        {path: "listCourse", component:ListCourseComponent,
+        {path: "", component:ListCourseComponent,
           resolve: {
             courses: CourseResolverService
           }
-        },
-        {path: "", component:ListCourseComponent}
+        }
         ]}
       ]
     },

@@ -1,3 +1,4 @@
+<div class="container">
 <mat-table [dataSource] = "courses" class="mat-elevation-z8 mx-auto table" matSort>
 
     <ng-container matColumnDef = "id">
@@ -34,7 +35,7 @@
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
             <button class="btn btn-primary mr-2" (click)="editCourse(element.couseId)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteCourse(element.couseId)">Delete</button>
+            <button id="deleteModal" data-toggle="modal" data-target="#myModal" class="btn btn-danger" (click)="showModal(element.couseId)">Delete</button>
           </mat-cell>
       </ng-container>
 
@@ -42,3 +43,24 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     
 </mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog" *ngIf="show">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete the course?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="deleteCourse()">Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+      </div>
+    </div>
+
+  </div>

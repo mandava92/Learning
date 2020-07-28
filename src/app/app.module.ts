@@ -14,6 +14,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 5000,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
-    })
+    }),
+    ConfirmationPopoverModule.forRoot()
   ],
    providers: [ { 
     provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
