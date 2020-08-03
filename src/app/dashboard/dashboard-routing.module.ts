@@ -24,6 +24,7 @@ import { MentorEditCourseComponent } from './mentor/course/edit-course/edit-cour
 import { MentorListCourseComponent } from './mentor/course/list-course/list-course.component';
 import { TraineeCourseResolverService } from './trainee-course-resolver.service';
 import { MentorCourseResolverService } from './mentor-course-resolver.service';
+import { UsersComponent } from './admin/users/users.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,10 @@ const routes: Routes = [
             courses: CourseResolverService
           }
         }
-        ]}
+        ]},
+        {
+          path:"users", component:UsersComponent
+        }
       ]
     },
     {

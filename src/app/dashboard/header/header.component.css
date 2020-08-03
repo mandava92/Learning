@@ -1,7 +1,9 @@
 .bg {
     background-color:blue;
+    color: white;
 }
 
 .nav-item {
     font-weight: bold;
+    color: white;
 }

@@ -1,0 +1,71 @@
+<div class="container">
+    <mat-table [dataSource] = "courses" class="mat-elevation-z8 mx-auto table" matSort>
+    
+        <ng-container matColumnDef = "id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.couseId}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef = "userName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Mentor Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "courseName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Course Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.courseName}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "skillName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Skill Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.skillName}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "batchName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Batch Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.batchName}} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef = "mentorShare">
+            <mat-header-cell *matHeaderCellDef> Mentor Share % </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mentorShare}} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef = "studentFee">
+            <mat-header-cell *matHeaderCellDef> Student Fee </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.studentFee}} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef = "action">
+              <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <button class="btn btn-primary mr-2" (click)="editCourse(element.couseId)">Edit</button>
+                <button id="deleteModal" data-toggle="modal" data-target="#myModal" class="btn btn-danger" (click)="showModal(element.couseId)">Delete</button>
+              </mat-cell>
+          </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    
+    <div id="myModal" class="modal fade" role="dialog" *ngIf="show">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Do you really want to delete the course?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="deleteCourse()">Yes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+    
+      </div>

@@ -26,6 +26,7 @@ import { CourseComponent } from './mentor/course/mentor-course.component';
 import { MentorListCourseComponent } from './mentor/course/list-course/list-course.component';
 import { MentorEditCourseComponent } from './mentor/course/edit-course/edit-course.component';
 import { MentorAddCourseComponent } from './mentor/course/add-course/add-course.component';
+import { UsersComponent } from './admin/users/users.component';
 // import { CommonModule } from '@angular/common';
 // import { RatingsComponent } from '../ratings/ratings.component';
 
@@ -52,7 +53,8 @@ import { MentorAddCourseComponent } from './mentor/course/add-course/add-course.
     CourseComponent,
     MentorListCourseComponent,
     MentorEditCourseComponent,
-    MentorAddCourseComponent
+    MentorAddCourseComponent,
+    UsersComponent
     // RatingsComponent
   ],
   imports: [
