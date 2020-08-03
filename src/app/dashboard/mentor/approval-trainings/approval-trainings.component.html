@@ -19,8 +19,8 @@
       <ng-container matColumnDef = "action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
-            <button class="btn btn-primary mr-2" (click)="approveTraining(element)">Approve</button>
-            <button class="btn btn-danger" (click)="rejectTraining(element)">Reject</button>
+            <button class="btn btn-primary mr-2" (click)="approval(element,'A')">Approve</button>
+            <button class="btn btn-danger" (click)="approval(element,'R')">Reject</button>
           </mat-cell>
       </ng-container>
 

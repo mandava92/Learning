@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TraineeService } from '../trainee.service';
 import { StudentTrainings } from 'src/app/Models/student-trainings';
+import { CourseService } from '../../admin/admin-course/course.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-trainee-completed',
@@ -9,35 +11,25 @@ import { StudentTrainings } from 'src/app/Models/student-trainings';
 })
 export class TraineeCompletedComponent implements OnInit {
 
-  completedTrainings : StudentTrainings[] = [];
   
-  constructor(private trainingService:TraineeService) { }
+currentTrainings: StudentTrainings[] = [];
+progress = 60;
+  constructor(private traineeService: TraineeService, private authService: AuthService,
+    private service: CourseService,) { }
 
   ngOnInit(): void {
-    this.getCompletedTrainings();
+   this.getApprovedTrainings();
   }
 
-  getCompletedTrainings() {
-    this.trainingService.getCompletedTrainings(123)
+  getApprovedTrainings(){
+    let userId:Number;
+    this.service.studentCurrentCourses(this.authService.currentUserValue.userName)
                         .subscribe(
                           data => {
-                            this.completedTrainings = data;
-                          },
-                          error => {
-                            let st = new StudentTrainings();
-                            st.courseName = "test";
-                            st.mentorName = "Maya";
-                            st.batchName = "Mornings";
-                            st.studentFee = 123;
-                            st.ratings = 2.8;
-                            this.completedTrainings.push(st);
+                            this.currentTrainings = data;                            
                           }
                         );
   }
 
-  cal(num){
-    console.log("fghjkl");
-    console.log(num);
-  }
 
 }

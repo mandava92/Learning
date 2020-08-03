@@ -1,19 +1,19 @@
 import { Component, OnInit, ViewChild,ChangeDetectorRef, ElementRef } from '@angular/core';
 import { Course } from 'src/app/Models/course';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CourseService } from '../course.service';
 import { Skill } from 'src/app/Models/skill';
 import { Batch } from 'src/app/Models/batch';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { CourseService } from 'src/app/dashboard/admin/admin-course/course.service';
 
 @Component({
   selector: 'app-list-course',
   templateUrl: './list-course.component.html',
   styleUrls: ['./list-course.component.css']
 })
-export class ListCourseComponent implements OnInit {
+export class MentorListCourseComponent implements OnInit {
   courses = new MatTableDataSource();
   show:boolean;
   skils: Skill[] = [];
@@ -65,7 +65,7 @@ export class ListCourseComponent implements OnInit {
   editCourse(courseId){
     console.log(courseId);
     this.courseService.behaviour.next(courseId);
-    this.router.navigate(['/admin/course/editCourse', courseId ]);
+    this.router.navigate(['/mentor/course/editCourse', courseId ]);
   }
 
 }

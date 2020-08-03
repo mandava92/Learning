@@ -1,0 +1,22 @@
+.card{
+    /* height: 370px; */
+    /* margin-top: 10%;
+    margin-bottom: auto; */
+    width: 30%;
+    /* background-color: yellowgreen !important; */
+    font-weight: bold;
+    font-family: "New Century Schoolbook"
+    }
+.card-header {
+    background-color: skyblue !important;
+}
+label,h3 {
+    font-weight: bold;
+    font-family: "New Century Schoolbook"
+}  
+
+.warning{
+
+color: orangered;
+
+}

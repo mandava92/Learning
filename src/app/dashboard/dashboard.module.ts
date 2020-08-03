@@ -22,6 +22,10 @@ import { SearchTrainingsComponent } from './mentor/search-trainings/search-train
 import { CompletedTrainingsComponent } from './mentor/completed-trainings/completed-trainings.component';
 import { ProgressTrainingsComponent } from './mentor/progress-trainings/progress-trainings.component';
 import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval-trainings.component';
+import { CourseComponent } from './mentor/course/mentor-course.component';
+import { MentorListCourseComponent } from './mentor/course/list-course/list-course.component';
+import { MentorEditCourseComponent } from './mentor/course/edit-course/edit-course.component';
+import { MentorAddCourseComponent } from './mentor/course/add-course/add-course.component';
 // import { CommonModule } from '@angular/common';
 // import { RatingsComponent } from '../ratings/ratings.component';
 
@@ -44,8 +48,11 @@ import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval
     SearchTrainingsComponent,
     CompletedTrainingsComponent,
     ProgressTrainingsComponent,
-    ApprovalTrainingsComponent
-    
+    ApprovalTrainingsComponent,
+    CourseComponent,
+    MentorListCourseComponent,
+    MentorEditCourseComponent,
+    MentorAddCourseComponent
     // RatingsComponent
   ],
   imports: [

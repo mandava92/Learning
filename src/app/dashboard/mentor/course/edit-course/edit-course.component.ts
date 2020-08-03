@@ -5,17 +5,17 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/Models/course';
 import { createAotUrlResolver } from '@angular/compiler';
-import { CourseService } from '../course.service';
-import { SkillService } from '../../admin-skill/skill.service';
-import { BatchService } from '../../admin-batch/batch.service';
 import { NotificationService } from 'src/app/notification.service';
+import { SkillService } from 'src/app/dashboard/admin/admin-skill/skill.service';
+import { BatchService } from 'src/app/dashboard/admin/admin-batch/batch.service';
+import { CourseService } from 'src/app/dashboard/admin/admin-course/course.service';
 
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.css']
 })
-export class EditCourseComponent implements OnInit {
+export class MentorEditCourseComponent implements OnInit {
   skills: Skill[] = [];
   batches: Batch[] = [];
   course;
@@ -98,7 +98,7 @@ export class EditCourseComponent implements OnInit {
       data =>{
         this.course = data;
         this.notification.showSuccess("Success","Data updated successfully")
-        this.router.navigate(['/admin/course']);
+        this.router.navigate(['/mentor/course']);
       } 
     );
   }

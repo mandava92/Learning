@@ -5,7 +5,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.couseId}} </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef = "userName">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Mentor Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
@@ -40,7 +40,7 @@
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
             <button class="btn btn-primary mr-2" (click)="editCourse(element.couseId)">Edit</button>
-            <button id="deleteModal" data-toggle="modal" data-target="#myModal" class="btn btn-danger" (click)="showModal(element.couseId)">Delete</button>
+            <!-- <button id="deleteModal" data-toggle="modal" data-target="#myModal" class="btn btn-danger" (click)="showModal(element.couseId)">Delete</button> -->
           </mat-cell>
       </ng-container>
 

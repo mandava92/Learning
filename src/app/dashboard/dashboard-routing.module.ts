@@ -18,6 +18,12 @@ import { ApprovalTrainingsComponent } from './mentor/approval-trainings/approval
 import { ProgressTrainingsComponent } from './mentor/progress-trainings/progress-trainings.component';
 import {Role} from '../Models/role';
 import { CourseResolverService } from './course-resolver.service';
+import { CourseComponent } from './mentor/course/mentor-course.component';
+import { MentorAddCourseComponent } from './mentor/course/add-course/add-course.component';
+import { MentorEditCourseComponent } from './mentor/course/edit-course/edit-course.component';
+import { MentorListCourseComponent } from './mentor/course/list-course/list-course.component';
+import { TraineeCourseResolverService } from './trainee-course-resolver.service';
+import { MentorCourseResolverService } from './mentor-course-resolver.service';
 
 
 const routes: Routes = [
@@ -30,9 +36,14 @@ const routes: Routes = [
       data: { roles: [Role.Trainee] },
        children: [
         {path: "completedTrainings", component: TraineeCompletedComponent},
-        {path: "searchTrainings", component: TraineeSearchComponent},
-        {path: "currentTrainings", component: TraineeInprogressComponent},
-        {path: "", component:TraineeInprogressComponent}
+        {path: "searchTrainings", component: TraineeSearchComponent,
+          resolve: {
+            courses: TraineeCourseResolverService
+          }
+        },
+        {path: "currentTrainings", component: TraineeCompletedComponent},
+        {path: "pendingTrainings", component:TraineeInprogressComponent},
+        
        ]
     },
     {
@@ -58,10 +69,19 @@ const routes: Routes = [
      // canActivate: [RoleGuardService],
       component: MentorComponent,
       children : [
-        {path: "searchTrainings", component: SearchTrainingsComponent},
+        // {path: "searchTrainings", component: SearchTrainingsComponent},
         {path: "currentTrainings", component : ProgressTrainingsComponent},
         {path: "completedTrainings", component : CompletedTrainingsComponent},
-        {path: "approvalTrainings", component: ApprovalTrainingsComponent}
+        {path: "approvalTrainings", component: ApprovalTrainingsComponent},
+        {path: "searchTrainings", component:CourseComponent, children : [
+          {path: "addCourse", component: MentorAddCourseComponent},
+          {path: "editCourse/:id", component:MentorEditCourseComponent},
+          {path: "", component:MentorListCourseComponent,
+            resolve: {
+              courses: MentorCourseResolverService
+            }
+          }
+          ]}
       ]
     }
   ]

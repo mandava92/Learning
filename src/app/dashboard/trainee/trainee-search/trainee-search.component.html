@@ -1,14 +1,16 @@
 <div class="row">
-    <div class="col-lg-4 mt-4" *ngFor="let searchTraining of searchTrainings">
+    <div class="col-lg-4 mt-4" *ngFor="let searchTraining of courses">
       <div class="card">
         <h4 class="card-header">{{searchTraining.courseName}}</h4>
         <img  src="https://via.placeholder.com/50" alt="">
         <div class="card-body">
           <div class="card-title">
-            <div class="text-center author">{{searchTraining.mentorName}}</div>
+            <div class="text-center author">{{searchTraining.userName}}</div>
             <div class="card-text text-center">
-              <h5>{{searchTraining.batchName}}</h5>  
-              <button class="btn btn-primary" (click)="proposeTraining(searchTraining.trainerCourseId)">
+              <h5>batch Name : {{searchTraining.batchName}}</h5>  
+              <h5>Skill Name : {{searchTraining.skillName}}</h5>  
+              <h5>Course Fee : {{searchTraining.studentFee}}</h5>  
+              <button class="btn btn-primary" (click)="proposeTraining(searchTraining.couseId,searchTraining.userName)">
                 Propose 
               </button>
             </div>

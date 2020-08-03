@@ -19,6 +19,26 @@ export class CourseService {
     return this._http.get<any>(`${environment.apiUrl}/api/search/courses`);
   }
 
+  allPendingApprovalCourses(mentorUserName) {
+    return this._http.get<any>(`${environment.apiUrl}/api/search/courses/pending/mentor/`+mentorUserName);
+  }
+
+  getAllTrainees(mentorUserName) {
+    return this._http.get<any>(`${environment.apiUrl}/api/search/courses/aproved/mentor/`+mentorUserName);
+  }
+
+  studentPendingApprovalCourses(traineeUserName) {
+    return this._http.get<any>(`${environment.apiUrl}/api/search/courses/pending/trainee/`+traineeUserName);
+  }
+
+  studentNewCourses(traineeUserName) {
+    return this._http.get<any>(`${environment.apiUrl}/api/search/courses/new/trainee/`+traineeUserName);
+  }
+
+  studentCurrentCourses(traineeUserName) {
+    return this._http.get<any>(`${environment.apiUrl}/api/search/courses/current/trainee/`+traineeUserName);
+  }
+
   createCourse(course:Course) {
     return this._http.post<any>(`${environment.apiUrl}/api/admin/course`,course);
   }

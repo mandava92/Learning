@@ -1,26 +1,33 @@
-<table class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>Course</th>
-            <th>Mentor</th>
-            <th>Batch</th>
-            <th>Rating</th>
-            <th>Fee</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let completedTraining of completedTrainings">
-            <td>{{completedTraining.courseName}}</td>
-            <td>{{completedTraining.mentorName}}</td>
-            <td>{{completedTraining.batchName}}</td>
-            <td><div>               
-                <app-ratings [rating]="completedTraining.ratings"></app-ratings>
-            </div></td>
-            <td>{{completedTraining.fee}}</td>
-        </tr>
-        
-       </tbody>
-      </table>  
-      <!-- <div #starrating> </div> -->
+<div class="row" >
+    <div class="col-lg-3 mt-4" *ngFor="let currentTraining of currentTrainings">
+      <div class="card">
+        <h4 class="card-header">{{currentTraining.courseName}}</h4>
+        <img  src="../../assets/images/angular.jpg/" width="100%" height="100px" alt="">
+        <div class="card-body">
+          <div class="card-title">
+            <div class="text-center author">{{currentTraining.userName}}</div>
+            <div class="text-center">{{currentTraining.batchName}}</div>
+            <div class="card-text">
+                <h5>batch Name : {{currentTraining.batchName}}</h5>  
+            <h5>Skill Name : {{currentTraining.skillName}}</h5>  
+            <h5>Course Fee : {{currentTraining.studentFee}}</h5>  
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="container">
+            <div class="progress">
+              <div class="progress-bar w-50 progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-     
+    
+</div>    
+
+
+
+

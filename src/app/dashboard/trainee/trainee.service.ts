@@ -12,8 +12,14 @@ export class TraineeService {
   url="";
 
   constructor(private _http:HttpClient) { }
-
-
+    
+  proposeTrainings(courseMapping) {
+    return this._http.post<any>(`${environment.apiUrl}/api/enroll`,courseMapping);
+  }
+ 
+  updateTrainingApprovalStatus(courseMapping) {
+    return this._http.post<any>(`${environment.apiUrl}/api/enroll`,courseMapping);
+  }
 
 
   getCurrentTrainings(userId) : Observable<StudentTrainings[]>{
